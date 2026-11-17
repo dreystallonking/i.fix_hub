@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i.fix_hub | Stallone Murage Kinguru — Hardware Diagnostics, Phone Sales &amp; Web Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        slateDark: '#1e293b',
+                        slateMid: '#334155',
+                        accentRed: '#dc2626',
+                        accentRedHover: '#b91c1c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .editorial-shadow {
+            box-shadow: 0 15px 35px -10px rgba(30, 41, 59, 0.08);
+        }
+        .accent-bar {
+            height: 4px;
+            width: 50px;
+            background-color: #dc2626;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-accentRed selection:text-white">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-slateDark text-white border-b border-slate-700/60 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Mark -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="bg-white px-3 py-1.5 rounded-lg shadow-sm flex items-center">
+                        <svg class="w-7 h-7" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="18" y="10" width="52" height="100" rx="9" fill="#FFFFFF" stroke="#111827" stroke-width="6"/>
+                            <line x1="36" y1="20" x2="52" y2="20" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="44" cy="98" r="4" fill="#111827"/>
+                            <rect x="64" y="42" width="14" height="36" fill="#FFFFFF"/>
+                            <g transform="translate(92, 60)">
+                                <circle cx="0" cy="0" r="13" stroke="#dc2626" stroke-width="6"/>
+                                <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+                                <line x1="0" y1="-19" x2="0" y2="-13" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="13" x2="0" y2="19" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="-19" y1="0" x2="-13" y2="0" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="13" y1="0" x2="19" y2="0" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="-13.5" y1="-13.5" x2="-9.2" y2="-9.2" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="9.2" y1="9.2" x2="13.5" y2="13.5" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="-13.5" y1="13.5" x2="-9.2" y2="9.2" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="9.2" y1="-9.2" x2="13.5" y2="-13.5" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+                            </g>
+                        </svg>
+                        <span class="ml-1.5 font-extrabold text-slate-900 tracking-tight text-sm">i.fix<span class="text-accentRed">_hub</span></span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hardware" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition-colors">Hardware &amp; Phones</a>
+                    <a href="#webdev" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition-colors">Web Development</a>
+                    <a href="#about" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://wa.me/254790551759" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-accentRed hover:bg-accentRedHover text-white transition-all shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> WhatsApp
+                    </a>
+                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="#hardware" class="mobile-link block px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-200 hover:bg-slate-800 hover:text-white">Hardware &amp; Phones</a>
+            <a href="#webdev" class="mobile-link block px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-200 hover:bg-slate-800 hover:text-white">Web Development</a>
+            <a href="#about" class="mobile-link block px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-200 hover:bg-slate-800 hover:text-white">About</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-200 hover:bg-slate-800 hover:text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- 1. HERO HEADER -->
+    <section class="relative bg-slateDark text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Logo Presentation Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-2xl p-8 sm:p-10 editorial-shadow border-t-4 border-accentRed flex flex-col items-center justify-center text-center">
+                        <svg class="w-full max-w-[280px] h-auto" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="i.fix_hub Logo">
+                            <rect x="26" y="18" width="96" height="194" rx="16" fill="#FFFFFF" stroke="#111111" stroke-width="8"/>
+                            <line x1="32" y1="36" x2="32" y2="194" stroke="#dc2626" stroke-width="2.5" stroke-opacity="0.6"/>
+                            <line x1="60" y1="34" x2="88" y2="34" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+                            <line x1="28" y1="48" x2="120" y2="48" stroke="#111111" stroke-width="3.5"/>
+                            <line x1="28" y1="180" x2="120" y2="180" stroke="#111111" stroke-width="3.5"/>
+                            <circle cx="74" cy="196" r="7" fill="#111111"/>
+                            <circle cx="74" cy="196" r="2.5" stroke="#dc2626" stroke-width="2"/>
+                            <rect x="114" y="64" width="16" height="98" fill="#FFFFFF"/>
+                            <path id="logoCurve" d="M 62 146 Q 152 86 252 132" fill="none"/>
+                            <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="43" fill="#111111" letter-spacing="1">
+                                <textPath href="#logoCurve" startOffset="2%">i.fix_hub</textPath>
+                            </text>
+                            <g transform="translate(296, 118)">
+                                <circle cx="0" cy="0" r="17" stroke="#dc2626" stroke-width="8"/>
+                                <circle cx="0" cy="0" r="6" fill="#FFFFFF"/>
+                                <rect x="-4" y="-27" width="8" height="8" rx="1.5" fill="#dc2626"/>
+                                <rect x="-4" y="19" width="8" height="8" rx="1.5" fill="#dc2626"/>
+                                <rect x="-27" y="-4" width="8" height="8" rx="1.5" fill="#dc2626"/>
+                                <rect x="19" y="-4" width="8" height="8" rx="1.5" fill="#dc2626"/>
+                                <rect x="-4" y="-27" width="8" height="8" rx="1.5" fill="#dc2626" transform="rotate(45)"/>
+                                <rect x="-4" y="-27" width="8" height="8" rx="1.5" fill="#dc2626" transform="rotate(135)"/>
+                                <rect x="-4" y="-27" width="8" height="8" rx="1.5" fill="#dc2626" transform="rotate(225)"/>
+                                <rect x="-4" y="-27" width="8" height="8" rx="1.5" fill="#dc2626" transform="rotate(315)"/>
+                            </g>
+                            <text x="58" y="164" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12.5" fill="#334155" letter-spacing="2.5">
+                                APPLIANCES REPAIR &amp; SERVICE
+                            </text>
+                        </svg>
+                        <div class="mt-4 pt-4 border-t border-slate-100 w-full flex items-center justify-center space-x-2 text-xs font-semibold text-slate-500">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Nairobi, Kenya • Professional Technical Services</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Information -->
+                <div class="lg:col-span-7">
+                    <span class="inline-block px-3 py-1 rounded bg-accentRed/20 text-red-400 font-bold text-xs uppercase tracking-widest mb-3">
+                        Professional Portfolio
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase leading-tight">
+                        STALLONE MURAGE KINGURU
+                    </h1>
+                    <p class="mt-3 text-base sm:text-lg text-slate-300 font-medium">
+                        Professional Hardware Diagnostics, Smartphone Solutions &amp; Digital Web Development
+                    </p>
+                    <div class="accent-bar my-5"></div>
+
+                    <!-- Contact Quick List -->
+                    <div class="space-y-2 text-sm text-slate-300 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-accentRed"></i>
+                            <a href="tel:+254790551759" class="hover:text-white transition-colors">0790 551 759</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-accentRed"></i>
+                            <a href="mailto:dreystallon@gmail.com" class="hover:text-white transition-colors">dreystallon@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-globe text-accentRed"></i>
+                            <a href="https://safari-box.africa" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">safari-box.africa</a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="#hardware" class="px-6 py-3.5 rounded-xl bg-accentRed hover:bg-accentRedHover text-white font-bold text-xs uppercase tracking-wider transition-all text-center shadow">
+                            Explore Hardware &amp; Repairs
+                        </a>
+                        <a href="#webdev" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-xs uppercase tracking-wider transition-all text-center">
+                            View Web Projects
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PRIORITY SECTION 1: i.fix_hub HARDWARE REPAIR & SELLING PHONES -->
+    <section id="hardware" class="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accentRed">Priority Service 01</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-slateDark mt-1">i.fix_hub Hardware &amp; Phone Retail</h2>
+                    <div class="accent-bar mt-3"></div>
+                </div>
+                <p class="text-slate-600 text-sm max-w-md mt-4 md:mt-0">
+                    Precision diagnostics, component-level mobile repairs, and transparent sourcing of quality smartphones and accessories in Nairobi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card 1: Hardware Repairs & Diagnostics -->
+                <div class="bg-slate-50 rounded-2xl p-8 editorial-shadow border-t-4 border-accentRed flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-accentRed/10 text-accentRed flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slateDark mb-3">Smartphone &amp; Device Diagnostics</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Professional troubleshooting and repair services for mobile phones and digital equipment, executed with meticulous attention to detail and device longevity.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Cracked screen, display touch panel &amp; glass replacements</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Battery health diagnostics &amp; charging port restoration</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Micro-soldering, board checks &amp; water-damage recovery</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Laptop hardware servicing, SSD upgrades &amp; maintenance</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="selectService('Smartphone & Laptop Repair')" class="w-full py-3 px-4 rounded-xl bg-slateDark hover:bg-slateMid text-white font-bold text-xs uppercase tracking-wider transition-colors">
+                        Book Repair Service <i class="fa-solid fa-arrow-right ml-1 text-accentRed"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: Phone Retail & Inventory -->
+                <div class="bg-slate-50 rounded-2xl p-8 editorial-shadow border-t-4 border-slateDark flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-200 text-slateDark flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slateDark mb-3">Device Retail &amp; Sourcing</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Sourcing and retail of premium brand-new boxed smartphones and thoroughly tested, high-grade Ex-UK devices suited for daily professional reliability.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Verified Ex-UK iPhones and Samsung flagship models</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Brand-new boxed smartphones with standard warranty</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Inventory quality control and performance checks</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check text-accentRed mt-1"></i>
+                                <span>Genuine chargers, protective cases &amp; audio peripherals</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="selectService('Brand-New / Ex-UK Device Purchase')" class="w-full py-3 px-4 rounded-xl bg-accentRed hover:bg-accentRedHover text-white font-bold text-xs uppercase tracking-wider transition-colors">
+                        Inquire Device Stock <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRIORITY SECTION 2: WEB & E-COMMERCE DEVELOPMENT -->
+    <section id="webdev" class="py-16 sm:py-24 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accentRed">Priority Service 02</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-slateDark mt-1">Web &amp; E-Commerce Development</h2>
+                    <div class="accent-bar mt-3"></div>
+                </div>
+                <p class="text-slate-600 text-sm max-w-md mt-4 md:mt-0">
+                    End-to-end digital creation, custom web architecture, responsive user interfaces, and live commercial publishing.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Web Service 1 -->
+                <div class="bg-white rounded-2xl p-7 editorial-shadow border-t-4 border-slateDark flex flex-col justify-between">
+                    <div>
+                        <div class="text-accentRed font-bold text-xs uppercase tracking-widest mb-2">Custom Build</div>
+                        <h3 class="text-lg font-extrabold text-slateDark mb-3">Custom Websites from Scratch</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Architecting and building responsive, high-performance websites tailored to specific business requirements, ensuring clean code and optimal speed.
+                        </p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Full Architecture &amp; UI/UX</span>
+                </div>
+
+                <!-- Web Service 2 (Featured Project: safari-box.africa) -->
+                <div class="bg-white rounded-2xl p-7 editorial-shadow border-t-4 border-accentRed flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-accentRed font-bold text-xs uppercase tracking-widest">Featured Project</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-100 text-emerald-800">Live</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slateDark mb-2">safari-box.africa</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                            Successfully designed, developed, and published the complete commercial platform <strong>safari-box.africa</strong> from scratch to finish, managing domain setup, deployment, and optimization.
+                        </p>
+                    </div>
+                    <a href="https://safari-box.africa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-accentRed hover:underline">
+                        Visit Live Platform <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i>
+                    </a>
+                </div>
+
+                <!-- Web Service 3 -->
+                <div class="bg-white rounded-2xl p-7 editorial-shadow border-t-4 border-slateDark flex flex-col justify-between">
+                    <div>
+                        <div class="text-accentRed font-bold text-xs uppercase tracking-widest mb-2">Ongoing Support</div>
+                        <h3 class="text-lg font-extrabold text-slateDark mb-3">Site Administration &amp; Maintenance</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Ongoing digital administration, routine performance checks, security updates, and feature integrations to keep web assets running smoothly.
+                        </p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Reliable Upkeep</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="about" class="py-16 sm:py-20 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-accentRed">Professional Overview</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-slateDark mt-1">About Stallone Murage</h2>
+            <div class="accent-bar mx-auto mt-3 mb-6"></div>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                Combining hands-on technical troubleshooting and device repair expertise with modern web development capabilities. Operating <strong class="text-slateDark font-bold">i.fix_hub</strong> in Nairobi as a trusted destination for mobile hardware solutions, alongside delivering custom digital platforms for growing enterprises.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. CONTACT & INQUIRY FOOTER BLOCK -->
+    <section id="contact" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                
+                <!-- Direct Contact Information -->
+                <div class="lg:col-span-5 bg-slateDark text-white rounded-3xl p-8 sm:p-10 editorial-shadow border-l-4 border-accentRed flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentRed">Get In Touch</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-white mt-1">Direct Contact</h2>
+                        <div class="accent-bar mt-3 mb-6"></div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                            Reach out directly for hardware repairs, device purchase inquiries, or custom website development projects.
+                        </p>
+
+                        <div class="space-y-4">
+                            <a href="tel:+254790551759" class="flex items-center space-x-4 p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 transition-colors">
+                                <div class="w-10 h-10 rounded-lg bg-accentRed text-white flex items-center justify-center text-sm flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Phone Call</div>
+                                    <div class="text-sm font-bold text-white">0790 551 759</div>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/254790551759" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 transition-colors">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-base flex-shrink-0">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase tracking-wider text-emerald-400 font-bold">WhatsApp Direct</div>
+                                    <div class="text-sm font-bold text-white">+254 790 551 759</div>
+                                </div>
+                            </a>
+
+                            <a href="mailto:dreystallon@gmail.com" class="flex items-center space-x-4 p-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 transition-colors">
+                                <div class="w-10 h-10 rounded-lg bg-accentRed text-white flex items-center justify-center text-sm flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Email Address</div>
+                                    <div class="text-sm font-bold text-white">dreystallon@gmail.com</div>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center space-x-4 p-3.5 rounded-xl bg-slate-800/80">
+                                <div class="w-10 h-10 rounded-lg bg-slate-700 text-slate-300 flex items-center justify-center text-sm flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Location</div>
+                                    <div class="text-sm font-bold text-white">Nairobi, Kenya</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Copy details:</span>
+                        <button onclick="copyContact()" id="copyBtn" class="px-3.5 py-2 rounded-lg bg-accentRed hover:bg-accentRedHover text-white font-bold text-xs uppercase transition-colors">
+                            <i class="fa-regular fa-copy mr-1"></i> Copy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Inquiry Form -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 editorial-shadow border-t-4 border-slateDark">
+                    <h3 class="text-2xl font-extrabold uppercase text-slateDark">Send an Inquiry</h3>
+                    <div class="accent-bar mt-3 mb-4"></div>
+                    <p class="text-slate-600 text-sm mb-6">
+                        Select a service below and send a direct inquiry via WhatsApp or email.
+                    </p>
+
+                    <form id="inquiryForm" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="clientName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Your Name *</label>
+                                <input type="text" id="clientName" required placeholder="e.g., David Kamau" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentRed text-sm">
+                            </div>
+                            <div>
+                                <label for="clientPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Phone / WhatsApp *</label>
+                                <input type="text" id="clientPhone" required placeholder="e.g., 07XX XXX XXX" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentRed text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="serviceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Service Required *</label>
+                            <select id="serviceSelect" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentRed text-sm font-medium">
+                                <option value="Smartphone & Laptop Repair">Smartphone &amp; Laptop Repair (i.fix_hub)</option>
+                                <option value="Brand-New / Ex-UK Device Purchase">Brand-New / Ex-UK Device Purchase (i.fix_hub)</option>
+                                <option value="Custom Website Development">Custom Website Development</option>
+                                <option value="Website Maintenance & Updates">Website Maintenance &amp; Updates</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="inquiryDetails" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Details (Device model / Issue / Web project specs) *</label>
+                            <textarea id="inquiryDetails" rows="3" required placeholder="Describe your repair needs, device inquiry, or web project requirements..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-accentRed text-sm"></textarea>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="sendWhatsApp()" class="flex-1 py-3.5 px-6 rounded-xl bg-accentRed hover:bg-accentRedHover text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all shadow flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Send via WhatsApp
+                            </button>
+                            <button type="submit" class="flex-1 py-3.5 px-6 rounded-xl bg-slateDark hover:bg-slateMid text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center">
+                                <i class="fa-solid fa-paper-plane mr-2 text-accentRed"></i> Send via Email
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="statusBox" class="hidden mt-4 p-3.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-medium"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-xs text-slate-400">
+                    &copy; <span id="yearNow"></span> Stallone Murage Kinguru • i.fix_hub • Nairobi, Kenya
+                </span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs font-bold">
+                <a href="https://safari-box.africa" target="_blank" rel="noopener noreferrer" class="text-accentRed hover:underline">safari-box.africa</a>
+                <a href="https://wa.me/254790551759" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white">WhatsApp</a>
+                <a href="mailto:dreystallon@gmail.com" class="text-slate-300 hover:text-white">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // Pre-select service
+        function selectService(label) {
+            document.getElementById('serviceSelect').value = label;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showStatus(txt) {
+            const box = document.getElementById('statusBox');
+            box.textContent = txt;
+            box.classList.remove('hidden');
+        }
+
+        // WhatsApp trigger
+        function sendWhatsApp() {
+            const name = document.getElementById('clientName').value.trim() || 'Client';
+            const phone = document.getElementById('clientPhone').value.trim() || 'N/A';
+            const service = document.getElementById('serviceSelect').value;
+            const details = document.getElementById('inquiryDetails').value.trim();
+
+            if (!details) {
+                showStatus('Please enter your project or repair details first.');
+                document.getElementById('inquiryDetails').focus();
+                return;
+            }
+
+            const msg = `Hello Stallone (i.fix_hub),\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Details:* ${details}`;
+            showStatus('Opening WhatsApp with your inquiry...');
+            window.open(`https://wa.me/254790551759?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        }
+
+        // Email form submit
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('serviceSelect').value;
+            const details = document.getElementById('inquiryDetails').value.trim();
+
+            const subject = encodeURIComponent(`i.fix_hub Inquiry: ${service} — ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nService: ${service}\n\nDetails:\n${details}`);
+
+            showStatus('Opening email client to send your inquiry...');
+            window.location.href = `mailto:dreystallon@gmail.com?subject=${subject}&body=${body}`;
+        });
+
+        // Copy contact
+        function copyContact() {
+            const text = "i.fix_hub — Appliances Repair & Service | Stallone Murage Kinguru | Phone/WhatsApp: 0790 551 759 | Email: dreystallon@gmail.com";
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const btn = document.getElementById('copyBtn');
+            btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Copied';
+            setTimeout(() => { btn.innerHTML = '<i class="fa-regular fa-copy mr-1"></i> Copy'; }, 2500);
+        }
+    </script>
+</body>
+</html>
